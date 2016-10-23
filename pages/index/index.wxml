@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container index">
+  <text class="title">别踩白块儿</text>
+  <button class="start-btn btn" type="primary" plain="true" loading="{{loading}}" hover-class bindtap="startGame">点击开始</button>
+  <!--<view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <text class="test-text">{{test.msg}}</text>
+  <view class="test">
+    <text class="test-text">{{test.msg}}</text>
+  </view>-->
+</view>

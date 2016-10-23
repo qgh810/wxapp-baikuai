@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="text-box">
+        <text>{{time}}</text>
+    </view>
+    <view class="row" wx:for="{{rows}}" wx:for-item="row" wx:for-index="rowIndex">
+        <view class="col{{n===3?' last': ''}}" wx:for="{{[1,2,3]}}" wx:for-item="n" wx:for-index="colIndex">
+            <view class="black" wx:if="{{row.blackIndex === n}}" data-row-index="{{rowIndex}}" data-col-index="{{colIndex}}" bindtouchstart="next"></view>
+            <view class="white" wx:if="{{row.blackIndex !== n}}" data-row-index="{{rowIndex}}" data-col-index="{{colIndex}}" bindtouchstart="over"></view>
+        </view>
+    </view>
+    <modal hidden="{{modal.hidden}}" title="游戏结束,您的得分是{{mark}}" confirm-text="再来一次" cancel-text="不玩了" bindconfirm="reStartGame" bindcancel="leaveGame">
+        <!--<text>123123</text>-->
+    </modal>
+</view>
