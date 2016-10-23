@@ -11,4 +11,5 @@
     <modal hidden="{{modal.hidden}}" title="游戏结束,您的得分是{{mark}}" confirm-text="再来一次" cancel-text="不玩了" bindconfirm="reStartGame" bindcancel="leaveGame">
         <!--<text>123123</text>-->
     </modal>
+    <video hidden="{{true}}" src="{{audio.src}}" controls="{{audio.controls}}" action="{{audio.action}}" bindplay="onplay"></video>
 </view>

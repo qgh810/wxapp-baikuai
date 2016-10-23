@@ -1,4 +1,6 @@
 import util from '../../utils/util'
+
+
 Page({
     data: {
         GAMETIME: 60,
@@ -9,7 +11,14 @@ Page({
         modal: {
             hidden: true
         },
-        lastTouchIndex: -1
+        lastTouchIndex: -1,
+        audio: {
+            playing: false,
+            controls: false,
+            src: '../../assets/audio/1.wav',
+            action: {}
+        },
+        playVoide: true
     },
     onLoad: function () {
         console.log('进入游戏页面')
@@ -48,6 +57,9 @@ Page({
         if (!this.data.gaming) {
             this.startGame()
         }
+        if (this.data.playVoide) {
+            // this.play()
+        }
 
         // 加一分
         var mark = this.data.mark + 1
@@ -72,6 +84,44 @@ Page({
         // console.log(event)
     },
 
+    play () {
+        console.log('这里调用播放音乐函数')
+        // '../../assets/audio/1.wav'
+        // this.setData({
+        //     'audio.action': {
+        //         method: 'setPlaybackRate',
+        //         data: 2
+        //     }
+        // })
+
+        if (this.data.audio.playing) {
+            this.setData({
+                'audio.action': {
+                    method: 'pause'
+                },
+                'audio.playing': false
+            })
+            setTimeout(() => {
+                this.setData({
+                    'audio.action': {
+                        method: 'setCurrentTime',
+                        data: 0
+                    }
+                })
+            }, 0)
+        } else {
+            this.setData({
+                'audio.action': {
+                    method: 'play'
+                },
+                'audio.playing': true
+            })
+        }
+    },
+
+    onplay () {
+        console.log('音效已经播放')
+    },
     // 开始游戏
     startGame () {
         this.setData({
@@ -92,6 +142,7 @@ Page({
     over (event) {
         // var rowIndex = event.currentTarget.dataset.rowIndex - 0
         // var colIndex = event.currentTarget.dataset.colIndex - 0
+        if (!this.data.gaming) return
         this.gameOver()
     },
 
